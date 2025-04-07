@@ -101,7 +101,7 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 
 ## License
 
-Distributed under the MIT License. Create a `LICENSE.md` file or include the license text if needed.
+Distributed under the MIT License. Check `LICENSE.md` file.
 
 ## Acknowledgements
 
