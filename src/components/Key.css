@@ -1,0 +1,133 @@
+/* src/components/Key.css */
+
+.key {
+    border: 1px solid var(--key-border);
+    box-sizing: border-box;
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+    /* Use the faster transitions from HTML example */
+    transition: background 0.05s ease-in-out, box-shadow 0.05s ease-in-out, transform 0.05s ease-in-out;
+    display: flex; /* Use flexbox for label positioning */
+    flex-direction: column; /* Stack labels vertically */
+    justify-content: flex-end; /* Push labels to the bottom */
+    align-items: center;
+    /* Remove direct padding-bottom, use container padding */
+  }
+  
+  /* Container for all labels inside the key */
+  .key-label-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 10px; /* Padding at the very bottom */
+      pointer-events: none; /* Labels shouldn't block clicks */
+  }
+  
+  /* Individual Label Styling */
+  .key-sargam-label,
+  .key-note-label,
+  .key-kbd-label {
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.2;
+  }
+  
+  .key-sargam-label {
+      font-size: 12px;
+      margin-bottom: 5px;
+      color: var(--sargam-label-color); /* Use theme variable */
+  }
+  
+  .key-note-label {
+    font-size: 11px; /* Match HTML */
+    margin-bottom: 5px; /* Match HTML */
+  }
+  
+  .key-kbd-label {
+    font-size: 14px; /* Match HTML */
+    /* Opacity set in index.css via theme variable */
+  }
+  
+  /* White Key Specifics */
+  .key.white {
+    width: var(--key-width);
+    height: var(--key-height);
+    background: var(--key-white-bg);
+    border-radius: 0 0 5px 5px; /* Match HTML */
+    box-shadow: var(--key-shadow);
+    margin-right: -1px; /* Overlap borders */
+    z-index: 1;
+  }
+  /* Theme colors applied via index.css */
+  
+  
+  /* Black Key Specifics */
+  .key.black {
+    width: var(--black-key-width);
+    height: var(--black-key-height);
+    background: var(--key-black-bg);
+    border-radius: 0 0 4px 4px; /* Match HTML */
+    box-shadow: var(--key-shadow), inset 0 -2px 3px rgba(255,255,255,0.1);
+    position: absolute;
+    top: var(--keyboard-padding); /* Align with keyboard padding */
+    z-index: 2;
+    /* Position relative to the preceding white key */
+    margin-left: calc(var(--key-width) * -0.5 - var(--black-key-width) * 0.5 + 0.5px);
+    border-width: 1px 2px 4px; /* Match HTML */
+    border-color: var(--black-key-border-color); /* Use theme variable */
+  }
+  /* Theme colors applied via index.css */
+  .key.black .key-sargam-label { display: none; } /* Hide Sargam on black keys */
+  
+  
+  /* Active State Styling (Matching HTML Example) */
+  .key.active.white {
+    background: var(--key-white-bg-active);
+    box-shadow: var(--key-shadow-active);
+    transform: translateY(2px); /* Press down effect */
+  }
+  
+  .key.active.black {
+    background: var(--key-black-bg-active);
+    box-shadow: var(--key-shadow-active), inset 0 -1px 1px rgba(255,255,255,0.1);
+    transform: translateY(1px); /* Press down effect */
+  }
+  
+  /* Glow Effect using ::after (Matching HTML Example) */
+  .key.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0; /* Span full width */
+    right: 0;
+    height: 5px;
+    background: var(--glow-color);
+    box-shadow: 0 0 10px 5px var(--glow-color); /* Match HTML */
+    border-radius: 50%;
+    opacity: 0.8; /* Match HTML */
+    z-index: 0; /* Below labels */
+    pointer-events: none;
+    transition: opacity 0.1s ease;
+  }
+  
+  .key.active.black::after {
+    bottom: -4px; /* Match HTML */
+    /* Adjust left/right if needed, but full width often looks good */
+  }
+  
+  
+  /* --- Responsive Adjustments for Labels --- */
+  @media (max-width: 600px) {
+    .key-sargam-label { font-size: 10px; margin-bottom: 3px; }
+    .key-note-label { font-size: 9px; margin-bottom: 3px; }
+    .key-kbd-label { font-size: 12px; }
+  }
+  @media (max-width: 450px) {
+     .key-sargam-label { font-size: 9px; margin-bottom: 2px; }
+     .key-note-label { font-size: 8px; margin-bottom: 2px; }
+     .key-kbd-label { font-size: 10px; }
+     .key-label-container { padding-bottom: 5px; } /* Reduce bottom padding */
+  }
+
+  /* Created by Ram Bapat, www.linkedin.com/in/ram-bapat-barrsum-diamos */

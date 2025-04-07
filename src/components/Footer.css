@@ -1,0 +1,49 @@
+/* src/components/Footer.css */
+
+.app-footer {
+    padding: 1.5rem 2rem; /* Vertical and horizontal padding */
+    margin-top: auto; /* Crucial: Pushes footer down in the flex container */
+    text-align: center;
+    background-color: var(--footer-bg); /* Use theme variable */
+    color: var(--footer-text-color); /* Use theme variable */
+    border-top: 1px solid var(--footer-border-color); /* Use theme variable */
+    flex-shrink: 0; /* Prevent footer from shrinking */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .social-links {
+    margin-bottom: 0.75rem; /* Space below icons */
+  }
+  
+  .social-links a {
+    color: var(--footer-link-color); /* Use theme variable */
+    margin: 0 1rem; /* Space between icons */
+    font-size: 1.8rem; /* Icon size */
+    transition: color 0.2s ease;
+    display: inline-block; /* Ensures proper spacing and alignment */
+  }
+  
+  .social-links a:hover {
+    color: var(--footer-link-hover-color); /* Use theme variable for hover */
+  }
+  
+  .connect-text {
+    margin: 0.3rem 0; /* Small vertical margin */
+    font-size: 0.9rem; /* Text size */
+    opacity: 0.8; /* Slightly less prominent */
+    line-height: 1.4;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    .app-footer {
+      padding: 1rem 1rem;
+    }
+    .social-links a {
+      font-size: 1.6rem;
+      margin: 0 0.8rem;
+    }
+    .connect-text {
+      font-size: 0.8rem;
+    }
+  }

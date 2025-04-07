@@ -1,0 +1,41 @@
+/* src/components/Keyboard.css */
+.keyboard-container {
+  display: flex;
+  justify-content: center; /* Center the keyboard (if it's narrower than container) */
+  align-items: center;
+  /* Adjust padding: Less horizontal padding on container */
+  padding: var(--keyboard-padding) 0; /* Vertical uses variable, Horizontal is 0 */
+  width: 100%; /* Take available width */
+  max-width: 100%; /* Ensure it doesn't exceed parent */
+  overflow-x: auto; /* Allow internal horizontal scrolling */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  box-sizing: border-box;
+  margin-bottom: 1rem; /* Add some space below the scrollable container */
+}
+
+.keyboard {
+  display: flex;
+  position: relative;
+  background: var(--keyboard-bg);
+  /* Padding inside the actual keyboard frame */
+  padding: var(--keyboard-padding);
+  border-radius: 10px;
+  box-shadow: var(--keyboard-shadow);
+  /* This forces the element to be wide enough for its content (keys) */
+  min-width: fit-content;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  /* Remove margins that might affect container calculation */
+  /* margin-left: 1px; */
+  /* margin-right: 1px; */
+}
+
+/* Add specific adjustments for mobile padding inside container if needed */
+@media (max-width: 600px) {
+    .keyboard-container {
+        padding-top: 10px; /* Reduce top/bottom padding on mobile */
+        padding-bottom: 10px;
+        margin-bottom: 0.5rem;
+    }
+}
+
+  /* Created by Ram Bapat, www.linkedin.com/in/ram-bapat-barrsum-diamos */

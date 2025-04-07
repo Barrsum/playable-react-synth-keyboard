@@ -1,0 +1,41 @@
+/* src/components/Header.css */
+.app-header {
+    display: flex;
+    justify-content: space-between; /* Pushes title and toggle apart */
+    align-items: center;
+    padding: 1rem 2rem; /* Top/bottom padding, Left/right padding */
+    background-color: var(--header-bg); /* Use theme variable */
+    color: var(--header-text); /* Use theme variable */
+    border-bottom: 1px solid var(--header-border); /* Use theme variable */
+    flex-shrink: 0; /* Prevent header from shrinking */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .app-title {
+    margin: 0; /* Remove default margin */
+    font-size: 1.5rem; /* Adjust title size */
+    font-weight: 600;
+  }
+  .app-title2 {
+    margin: 0; /* Remove default margin */
+    font-size: 1.2rem; /* Adjust title size */
+    font-weight: 600;
+  }
+  .title-credit {
+    justify-content: space-between; /* Pushes title and toggle apart */
+    align-items: center;
+    flex-shrink: 0; /* Prevent header from shrinking */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  /* Add responsive padding */
+  @media (max-width: 600px) {
+    .app-header {
+      padding: 0.8rem 1rem;
+    }
+    .app-title {
+      font-size: 1.2rem;
+    }
+  }
+
+  /* Created by Ram Bapat, www.linkedin.com/in/ram-bapat-barrsum-diamos */

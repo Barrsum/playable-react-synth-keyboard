@@ -1,0 +1,28 @@
+/* src/components/ThemeToggle.css */
+.theme-toggle-button {
+    background: none;
+    border: none;
+    color: inherit; /* Inherit color from parent (Header) */
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%; /* Make it circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+  }
+  
+  .theme-toggle-button:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Slight hover effect in dark */
+  }
+  
+  /* Adjust hover for light theme */
+  body.light-theme .theme-toggle-button:hover {
+      background-color: rgba(0, 0, 0, 0.08);
+  }
+  
+  .theme-toggle-button svg {
+    display: block; /* Prevent extra space below icon */
+  }
+
+  /* Created by Ram Bapat, www.linkedin.com/in/ram-bapat-barrsum-diamos */

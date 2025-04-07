@@ -1,0 +1,176 @@
+/* src/index.css */
+
+/* === CSS Variable Definitions === */
+:root {
+  /* --- Base Color Scheme Variables --- */
+  /* Light Theme Variables */
+  --bg-color-light: #e8e8e8;
+  --text-color-light: #2d2d2d;
+  --header-bg-light: #f0f0f0;
+  --header-text-light: #1a1a1a;
+  --header-border-light: #cccccc;
+  --button-bg-light: #dcdcdc;
+  --button-text-light: #333333;
+
+  /* Dark Theme Variables (Used by default) */
+  --bg-color-dark: #2c2c2c; /* Match HTML container bg */
+  --text-color-dark: rgba(255, 255, 255, 0.87);
+  --header-bg-dark: #1a1a1a;
+  --header-text-dark: #ffffff;
+  --header-border-dark: #333;
+  --button-bg-dark: #383838;
+  --button-text-dark: #ffffff;
+
+  /* --- Keyboard Style Variables (Matching HTML Example) --- */
+  /* Light Theme Specific Keyboard Styles */
+  --key-white-bg-light: linear-gradient(to bottom, #fdfdfd, #e0e0e0);
+  --key-white-bg-active-light: linear-gradient(to bottom, #d8d8d8, #c8c8c8);
+  --key-black-bg-light: linear-gradient(to bottom, #4a4a4a, #2a2a2a);
+  --key-black-bg-active-light: linear-gradient(to bottom, #383838, #181818);
+  --key-border-light: #b0b0b0;
+  --key-shadow-light: 0 3px 5px rgba(0, 0, 0, 0.2);
+  --key-shadow-active-light: 0 1px 2px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(0,0,0,0.15);
+  --glow-color-light: rgba(255, 100, 150, 0.7);
+  --key-label-color-light: #444;
+  --kbd-label-color-light: #666;
+  --sargam-label-color-light: #888;
+  --key-label-color-black-key-light: #ddd;
+  --kbd-label-color-black-key-light: #bbb;
+  --keyboard-bg-light: linear-gradient(to bottom, #f0f0f0, #d0d0d0);
+  --keyboard-shadow-light: 0 8px 25px rgba(0, 0, 0, 0.15), inset 0 1px 3px rgba(255,255,255,0.4);
+  --black-key-border-color-light: #ccc #999 #888; /* T/S/B */
+
+  /* Dark Theme Specific Keyboard Styles (Default, matching HTML) */
+  --key-white-bg-dark: linear-gradient(to bottom, #f8f8f8, #d8d8d8);
+  --key-white-bg-active-dark: linear-gradient(to bottom, #d0d0d0, #c0c0c0);
+  --key-black-bg-dark: linear-gradient(to bottom, #3a3a3a, #1a1a1a);
+  --key-black-bg-active-dark: linear-gradient(to bottom, #282828, #080808);
+  --key-border-dark: #888; /* Match HTML key-border */
+  --key-shadow-dark: 0 3px 5px rgba(0, 0, 0, 0.3); /* Match HTML key-shadow */
+  --key-shadow-active-dark: 0 1px 2px rgba(0, 0, 0, 0.4), inset 0 1px 2px rgba(0,0,0,0.2); /* Match HTML key-shadow-active */
+  --glow-color-dark: rgba(0, 220, 255, 0.8); /* Match HTML glow-color */
+  --key-label-color-dark: #555; /* Match HTML text-color on white */
+  --kbd-label-color-dark: #555; /* Match HTML text-color on white */
+  --sargam-label-color-dark: #777; /* Slightly different for sargam */
+  --key-label-color-black-key-dark: #ccc; /* Match HTML text-color-black-key */
+  --kbd-label-color-black-key-dark: #ccc; /* Match HTML text-color-black-key */
+  --keyboard-bg-dark: linear-gradient(to bottom, #555, #333); /* Match HTML keyboard bg */
+  --keyboard-shadow-dark: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 2px 5px rgba(255,255,255,0.1); /* Match HTML keyboard shadow */
+  --black-key-border-color-dark: #555 #222 #111; /* Match HTML black key border */
+
+  /* --- Footer Style Variables --- */
+  /* Light Theme Specific Footer Styles */
+  --footer-bg-light: #e0e0e0;
+  --footer-text-color-light: #555;
+  --footer-border-color-light: #ccc;
+  --footer-link-color-light: #333;
+  --footer-link-hover-color-light: #007bff;
+
+  /* Dark Theme Specific Footer Styles (Default) */
+  --footer-bg-dark: #1f1f1f;
+  --footer-text-color-dark: #aaa;
+  --footer-border-color-dark: #383838;
+  --footer-link-color-dark: #ccc;
+  --footer-link-hover-color-dark: #00d2ff;
+
+
+  /* --- Key Dimension Base Variables (Matching HTML Example) --- */
+  --key-width-base: 60px;
+  --key-height-base: 220px;
+  --black-key-width-base: 38px;
+  --black-key-height-base: 130px;
+  --keyboard-padding: 20px;
+}
+
+/* === Global Styles & Default Theme Application === */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif; /* Match HTML font */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-color-dark); /* Apply default dark theme */
+  color: var(--text-color-dark);
+  /* Define working dimension variables */
+  --key-width: var(--key-width-base);
+  --key-height: var(--key-height-base);
+  --black-key-width: var(--black-key-width-base);
+  --black-key-height: var(--black-key-height-base);
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  /* --- ADDED --- */
+  overflow-x: hidden; /* Prevent horizontal scrollbar on the main page */
+}
+
+body.light-theme {
+  background-color: var(--bg-color-light);
+  color: var(--text-color-light);
+}
+
+/* === Global Component Theme Variable Application === */
+/* App.jsx sets these generic vars based on current theme */
+.app-container { background-color: var(--bg-color); color: var(--text-color); }
+.app-header { background-color: var(--header-bg); color: var(--header-text); border-bottom-color: var(--header-border); }
+.tune-button { background-color: var(--button-bg); color: var(--button-text); }
+
+/* Apply keyboard specific theme vars */
+.keyboard { background: var(--keyboard-bg); box-shadow: var(--keyboard-shadow); padding: var(--keyboard-padding); }
+.key { border-color: var(--key-border); }
+.key.white { background: var(--key-white-bg); box-shadow: var(--key-shadow); width: var(--key-width); height: var(--key-height); }
+.key.black { background: var(--key-black-bg); box-shadow: var(--key-shadow), inset 0 -2px 3px rgba(255,255,255,0.1); width: var(--black-key-width); height: var(--black-key-height); top: var(--keyboard-padding); margin-left: calc(var(--key-width) * -0.5 - var(--black-key-width) * 0.5 + 0.5px); border-width: 1px 2px 4px; border-color: var(--black-key-border-color); }
+
+/* Text colors */
+.key.white .key-note-label { color: var(--key-label-color); }
+.key.white .key-kbd-label { color: var(--kbd-label-color); opacity: 0.7; }
+.key.white .key-sargam-label { color: var(--sargam-label-color); }
+.key.black .key-note-label,
+.key.black .key-kbd-label { color: var(--key-label-color-black-key); }
+.key.black .key-kbd-label { opacity: 0.7; }
+
+/* Active states */
+.key.active.white { background: var(--key-white-bg-active); box-shadow: var(--key-shadow-active); }
+.key.active.black { background: var(--key-black-bg-active); box-shadow: var(--key-shadow-active), inset 0 -1px 1px rgba(255,255,255,0.1); }
+.key.active::after { background: var(--glow-color); box-shadow: 0 0 10px 5px var(--glow-color); }
+
+/* Apply Footer Theme Variables Globally */
+.app-footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-text-color);
+  border-top-color: var(--footer-border-color);
+}
+.app-footer .social-links a {
+    color: var(--footer-link-color);
+}
+.app-footer .social-links a:hover {
+    color: var(--footer-link-hover-color);
+}
+
+
+/* === Responsive Key Size Variable Overrides === */
+/* Adjust base values for different screen sizes */
+@media (max-width: 900px) {
+    body {
+        --key-width-base: 50px; --key-height-base: 190px;
+        --black-key-width-base: 32px; --black-key-height-base: 115px;
+        --keyboard-padding: 15px;
+    }
+}
+@media (max-width: 600px) {
+     body {
+        --key-width-base: 40px; --key-height-base: 160px;
+        --black-key-width-base: 26px; --black-key-height-base: 100px;
+        --keyboard-padding: 10px;
+    }
+}
+@media (max-width: 450px) {
+     body {
+        --key-width-base: 35px; --key-height-base: 140px;
+        --black-key-width-base: 22px; --black-key-height-base: 90px;
+        --keyboard-padding: 8px;
+    }
+}
+
+/* === General Styles === */
+* { box-sizing: border-box; }
+*:before, *:after { box-sizing: border-box; }
+
+/* Created by Ram Bapat, www.linkedin.com/in/ram-bapat-barrsum-diamos */

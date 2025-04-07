@@ -1,0 +1,94 @@
+/* src/App.css */
+
+/* Main application container */
+.app-container {
+  display: flex;
+  flex-direction: column; /* Stack header, main, footer */
+  min-height: 100vh; /* Ensure it takes at least full height */
+  background-color: var(--bg-color); /* Use CSS variable */
+  color: var(--text-color); /* Use CSS variable */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Main content area between the header and footer */
+.main-content {
+  flex-grow: 1; /* Allow main content to take up available space */
+  display: flex;
+  flex-direction: column;
+  /* Remove align-items: center; let block elements take full width */
+  /* align-items: center; */
+  padding: 1.5rem 0; /* Reduced horizontal padding to 0 */
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Styles for the instruction text */
+.keyboard-instructions {
+  font-size: 0.9rem;
+  color: var(--text-color); /* Use theme text color */
+  opacity: 0.75;
+  margin-top: 1rem; /* Space below keyboard */
+  margin-bottom: 1rem; /* Space above tune controls */
+  padding: 0 1rem; /* Horizontal padding */
+  text-align: center;
+  max-width: 600px; /* Limit width */
+  line-height: 1.4;
+  align-self: center; /* Ensure it centers within the flex column */
+  margin-left: auto; /* Center block elements */
+  margin-right: auto; /* Center block elements */
+}
+
+/* Container for tune buttons */
+.tune-controls {
+  margin-top: 1rem; /* Reduced margin-top */
+  padding: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  width: 100%;
+  max-width: 95%; /* Ensure it stays within viewport */
+  box-sizing: border-box;
+  align-self: center; /* Ensure it centers within the flex column */
+}
+
+/* Stop Tune button */
+.stop-button {
+  padding: 0.8rem 1.5rem; margin: 0.5rem; font-size: 1rem;
+  font-weight: 500; border: none; border-radius: 5px; cursor: pointer;
+  background-color: #e74c3c; color: white;
+  transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); flex-shrink: 0;
+}
+.stop-button:hover { background-color: #c0392b; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25); }
+.stop-button:active { transform: translateY(0px); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); }
+body.light-theme .stop-button { background-color: #ff5252; color: #fff; }
+body.light-theme .stop-button:hover { background-color: #e74c3c; }
+
+
+/* === Responsive Adjustments === */
+@media (max-width: 768px) {
+  .main-content { padding: 1rem 0; } /* Adjusted */
+  .keyboard-instructions { font-size: 0.85rem; margin-top: 0.8rem; margin-bottom: 0.8rem; }
+  .tune-controls { margin-top: 0.8rem; gap: 0.6rem; }
+}
+
+@media (max-width: 480px) {
+  .main-content { padding: 0.5rem 0; } /* Adjusted */
+  .keyboard-instructions { font-size: 0.75rem; margin-top: 0.5rem; margin-bottom: 0.75rem; }
+   .tune-controls {
+      margin-top: 0.5rem;
+      gap: 0.4rem;
+      max-width: 100%;
+   }
+   .tune-controls .tune-button,
+   .tune-controls .stop-button {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.8rem;
+        margin: 0.2rem;
+   }
+}
+
+/* Created by Ram Bapat, www.linkedin.com/in/ram-bapat-barrsum-diamos */
